@@ -28,11 +28,11 @@ An automated "Virtual Fence" system that:
 
 ### 1. Real-time Intrusion Detection
 *The system detects a worker entering the High Voltage exclusion zone.*
-![Detection Demo](demo_detection.jpg) 
+![Detection Demo](demo_image/demo_detection.jpg) 
 
 ### 2. HSE Monitoring Dashboard
 *Managers can view live statistics and photographic evidence of violations.*
-![Dashboard Demo](demo_dashboard.png)
+![Dashboard Demo](demo_image/demo_dashboard.png)
 
 ---
 

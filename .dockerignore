@@ -1,0 +1,13 @@
+.git
+.gitignore
+
+venv/
+env/
+__pycache__/
+
+evidence/
+stairvision_logs.db
+*.pt
+
+*.jpg
+*.png
