@@ -17,7 +17,6 @@ st.markdown("Real-time monitoring for **Stairvision Area 1**")
 
 # --- DATA LOADING FUNCTION ---
 def get_data():
-    """Fetches data from the SQLite database"""
     try:
         conn = sqlite3.connect("stairvision_logs.db")
         df = pd.read_sql_query("SELECT * FROM incidents", conn)

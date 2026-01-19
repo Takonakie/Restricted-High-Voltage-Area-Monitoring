@@ -47,16 +47,13 @@ while True:
             zone_x1, zone_y1 = 50, 50
             zone_x2, zone_y2 = 300, 400
             
-            # Logika Matematika: Apakah dua kotak bertabrakan?
-            # Jika (Orang Kiri < Zona Kanan) DAN (Orang Kanan > Zona Kiri) ... dst
             is_overlapping = (x1 < zone_x2) and (x2 > zone_x1) and (y1 < zone_y2) and (y2 > zone_y1)
 
             if is_overlapping:
-                # SAMA SEPERTI SEBELUMNYA
                 intruder_detected = True
                 zone_color = (0, 0, 255) 
                 
-                # Visualisasi
+                # Visualization
                 cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 0, 255), 2)
                 cv2.putText(frame, "DANGER: HIGH VOLTAGE!", (x1, y1 - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.6, (0, 0, 255), 2)
 
@@ -66,14 +63,14 @@ while True:
         current_time = time.time()
         
         if current_time - last_log_time > COOLDOWN_SECONDS:
-            # 1. Generate Nama File Unik (biar gak ketimpa)
+            # 1. Generate Unique Filename
             timestamp_str = time.strftime("%Y%m%d_%H%M%S")
             filename = f"evidence/violation_{timestamp_str}.jpg"
             
-            # 2. Simpan Frame saat ini jadi Gambar (Snapshot)
+            # 2. Save Frame when it becomes Violation
             cv2.imwrite(filename, frame)
             
-            # 3. Log ke Database beserta Lokasi Fotonya
+            # 3. Log to Database with Evidence Path
             database.log_incident("CRITICAL VIOLATION: HV Zone Access", filename)
             
             last_log_time = current_time
